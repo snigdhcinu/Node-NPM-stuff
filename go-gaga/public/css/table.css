@@ -42,3 +42,7 @@ body{
 	outline: none;
 	transform: scale(0.8);
 }
+
+#home:hover{
+	transform: scale(1);
+}
