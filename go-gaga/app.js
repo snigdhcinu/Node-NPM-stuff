@@ -47,7 +47,8 @@ app.route('/')
 	})
 
 let result = [];
-app.route('/getInfo')
+let searchQuery;
+app.route('/getAllInfo')
 	.get((req,res) => {
 		Detail.find((err,details)=>{
 			if(err){
@@ -59,6 +60,36 @@ app.route('/getInfo')
 	})
 
 	.post((req,res) =>{
+		searchQuery = req.body.query;
+		searchQuery = searchQuery.toLowerCase();
+		res.redirect('/getSpecificInfo')
+	})
+
+
+app.route('/getSpecificInfo')
+	.get((req,res) => {
+		let data = [];
+		console.log(searchQuery);
+		// Detail.find({$or:[{name: searchQuery},{city:searchQuery},{country:searchQuery}]},(err,details) => {
+			Detail.find((err,details) =>{
+			if(err){
+				res.send(err)
+			}
+			// result = details;
+			// res.redirect('/getSpecificInfo')
+			// console.log(details)
+
+			details.forEach((item,index) =>{
+				if((item.name.toLowerCase() == searchQuery) || (item.location.city.toLowerCase() == searchQuery) || (item.location.country.toLowerCase() == searchQuery)){
+					data.push(item)
+				}
+			})
+			console.log(data)
+			res.render('table',{result:data})
+		})
+	})
+
+	.post((req,res) => {
 
 	})
 

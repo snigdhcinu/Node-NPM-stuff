@@ -5,10 +5,11 @@ body{
 	align-items: center;
 	background-color: #c6fced;
 }
+
 #container{
 	min-width: 80vw;
-	min-height: 60vh;
-	overflow-y: scroll;
+	height: 70vh;
+	overflow: scroll;
 	padding: 20px 40px;
 	border-style: solid;
 	border-radius: 30px;
@@ -28,4 +29,16 @@ body{
 
 #container h1{
 	text-align: center;
+}
+#search-box{
+	float: right;
+	transform: scale(0.8);
+	margin-bottom: 1rem;
+}
+#home{
+	float: left;
+	border-style: none;
+	cursor: pointer;
+	outline: none;
+	transform: scale(0.8);
 }
