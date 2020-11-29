@@ -23,7 +23,7 @@ app.post('/',function(req,res){
    	.list(["Receipt id :- "+" "+id,"Customer Name :-"+" "+name,"Date of purchase :-"+" "+date,"Product bought :-"+" "+product
    		,"Quantity purchased :- "+" "+quantity,"Total cost :- "+" "+price],100,100)
    	doc.end();	// Important to close the document.
-   	// res.send('order-id :-'+' '+id);
+   	res.sendFile(__dirname+'/orderID.pdf');
 })
 app.listen(3000,function(){
 	console.log('server online on port no. 3000......');
