@@ -89,10 +89,6 @@ app.route('/getSpecificInfo')
 		})
 	})
 
-	.post((req,res) => {
-
-	})
-
 
 app.listen('8000',() =>{
 	console.log('server online on port 8000')
